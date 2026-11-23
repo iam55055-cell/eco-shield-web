@@ -152,7 +152,7 @@ def header(lang, cur, alt):
     return f'''<a class="skip" href="#main">{'본문 바로가기' if k else 'Skip to content'}</a>
 <header class="hd">
  <div class="wrap">
-  <a class="hd-logo" href="{url(cur, home)}" aria-label="ECOSHIELD {'홈' if k else 'Home'}"><img class="on-light" src="{asset(cur, 'img/logo.png')}" alt="ECOSHIELD 에코쉴드"><img class="on-dark" src="{asset(cur, 'img/logo-dark.png')}" alt=""></a>
+  <a class="hd-logo" href="{url(cur, home)}" aria-label="EXOSKIN {'홈' if k else 'Home'}"><img class="on-light" src="{asset(cur, 'img/logo.png')}" alt="EXOSKIN 엑소스킨"><img class="on-dark" src="{asset(cur, 'img/logo-dark.png')}" alt=""></a>
   <nav aria-label="{'주 메뉴' if k else 'Main'}"><ul class="gnb">{gnb}</ul></nav>
   <div class="hd-util">
    <button class="icon-btn" type="button" data-search aria-label="{'검색' if k else 'Search'}">{ic('search')}</button>
@@ -189,7 +189,7 @@ def footer(lang, cur, alt):
         tag = 'Aerogel fire protection &amp; thermal insulation<br>Official Korea Distributor of Shuoxing New Materials'
     return f'''<footer class="ft">
  <div class="wrap">
-  <div class="ft-top"><div><img class="ft-logo" src="{asset(cur, 'img/logo-full-dark.png')}" alt="ECOSHIELD — Technology that enhances safety wherever protection is needed."><p>{tag}</p></div><nav class="ft-nav" aria-label="{'푸터 메뉴' if k else 'Footer'}">{cols}</nav></div>
+  <div class="ft-top"><div><img class="ft-logo" src="{asset(cur, 'img/logo-full-dark.png')}" alt="EXOSKIN — Safety wherever protection is needed."><p>{tag}</p></div><nav class="ft-nav" aria-label="{'푸터 메뉴' if k else 'Footer'}">{cols}</nav></div>
   <div class="ft-legal">{legal}</div>
   <p class="ft-info">{info}</p>
   <div class="ft-copy"><span>{copy}</span><span>{sub}</span></div>
@@ -477,7 +477,7 @@ def page_about(lang):
             ('leaf', L('더 정직하게', 'More honest'), L('시험 기준과 원산지를 분명히 밝히고, 확인된 정보만 말합니다.', 'We state test bases and origin clearly and claim only what is verified.'))]
     body += f'''<div class="page"><div class="wrap">
 <div class="block split"><div class="rv"><span class="eyebrow">Brand</span><h2 class="h2">ECO + SHIELD</h2><p class="lead">{L('에코쉴드는 친환경(Eco)과 방패(Shield)를 합친 이름입니다. 유해물질 걱정 없는 소재로, 화재와 열로부터 지켜야 할 것을 지킨다는 약속을 담았습니다.', 'ECOSHIELD combines Eco and Shield: a promise to protect what matters from fire and heat, with materials free of harmful emissions.')}</p></div>
-<div class="rv d1" style="background:var(--soft);border-radius:var(--radius);padding:64px 48px;display:grid;place-items:center"><img src="{asset(cur, 'img/logo-center.png')}" alt="ECOSHIELD logo" style="width:100%;max-width:360px"></div></div>
+<div class="rv d1" style="background:var(--soft);border-radius:var(--radius);padding:64px 48px;display:grid;place-items:center"><img src="{asset(cur, 'img/logo-center.png')}" alt="EXOSKIN logo" style="width:100%;max-width:360px"></div></div>
 <div class="block"><div class="sec-hd"><div class="rv"><span class="eyebrow">Logo</span><h2 class="h3">{L('로고의 의미', 'About the logo')}</h2></div></div>
 <div class="tiles c3"><div class="tile rv"><span class="ico" style="background:#E90102;color:#fff">{ic('leaf')}</span><h3>{L('빨강 · ECO', 'Red · ECO')}</h3><p>{L('사람과 환경을 먼저 생각하는 열정, 그리고 불을 다스리는 기술을 뜻합니다.', 'Passion for people and the environment, and the technology that keeps fire in check.')}</p></div>
 <div class="tile rv d1"><span class="ico" style="background:#001288;color:#fff">{ic('shield')}</span><h3>{L('남색 · SHIELD', 'Navy · SHIELD')}</h3><p>{L('화재와 열로부터 지켜 주는 보호막, 그리고 신뢰를 뜻합니다.', 'A protective shield against fire and heat, and the trust behind it.')}</p></div>
