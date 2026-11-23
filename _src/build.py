@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""ECOSHIELD 정적 사이트 생성기.
+"""EXOSKIN 정적 사이트 생성기.
 실행: python3 build.py  → ../eco-shield/ 에 HTML 생성 (assets 폴더는 그대로 둠)
 """
 import os, json, html, datetime
@@ -87,7 +87,7 @@ def nav(lang):
     k = lang == 'ko'
     items = [
         ('about', '회사소개', 'About Us', 'about/ecoshield/', [
-            ('에코쉴드 소개', 'About ECOSHIELD', 'about/ecoshield/'),
+            ('엑소스킨 소개', 'About EXOSKIN', 'about/ecoshield/'),
             ('브랜드 스토리', 'Brand Story', 'about/brand/'),
             ('제조 파트너', 'Manufacturing Partner', 'about/manufacturer/'),
             ('품질·공급 체계', 'Quality & Supply', 'about/quality/'),
@@ -146,8 +146,8 @@ def header(lang, cur, alt):
     langsw = '<div class="lang"><a href="%s" class="%s" hreflang="ko" lang="ko">KO</a><span>/</span><a href="%s" class="%s" hreflang="en" lang="en">EN</a></div>' % (ko_url, 'on' if k else '', en_url, '' if k else 'on')
     ctas = ('<a class="btn-hd" href="%s">견적 문의</a>' % url(cur, 'contact/quote/')) if k else \
            ('<a class="btn-hd ghost" href="%s">Become a Partner</a><a class="btn-hd" href="%s">Request a Quote</a>' % (url(cur, 'en/contact/partner/'), url(cur, 'en/contact/quote/')))
-    intro = ('<b>ECOSHIELD</b><p>에어로젤 방화·단열 소재 전문 브랜드. 숴싱 신소재 한국 공식 총판입니다.</p>' if k else
-             '<b>ECOSHIELD</b><p>Aerogel fire protection and thermal insulation. Official Korea distributor of Shuoxing New Materials.</p>')
+    intro = ('<b>EXOSKIN</b><p>에어로젤 방화·단열 소재 전문 브랜드. 숴싱 신소재 한국 공식 총판입니다.</p>' if k else
+             '<b>EXOSKIN</b><p>Aerogel fire protection and thermal insulation. Official Korea distributor of Shuoxing New Materials.</p>')
     mcta = ('<a href="%s" class="pri">견적 문의</a><a href="%s">%s</a>' % (url(cur, lp(lang, 'contact/quote/')), en_url if k else ko_url, 'English' if k else '한국어'))
     return f'''<a class="skip" href="#main">{'본문 바로가기' if k else 'Skip to content'}</a>
 <header class="hd">
@@ -175,16 +175,16 @@ def footer(lang, cur, alt):
                  f'<a href="{url(cur, "no-email-collection/")}">이메일무단수집거부</a><a href="{url(cur, "sitemap/")}">사이트맵</a>')
         info = ('<span>상호 %s</span><span>대표 %s</span><span>사업자등록번호 %s</span><br>'
                 '<span>주소 %s</span><span>대표전화 <a href="tel:%s" style="color:inherit">%s</a></span><span>이메일 <a href="mailto:%s" style="color:inherit">%s</a></span><br>'
-                '<span>ECOSHIELD는 %s의 에어로젤 소재 브랜드입니다</span><span>숴싱 신소재(Shuoxing New Materials) 한국 공식 총판</span><span>제조원: 숴싱 신소재(중국)</span>') % (SITE['operator_ko'], SITE['ceo_ko'], SITE['bizno'], SITE['addr_ko'], SITE['tel_link'], SITE['tel'], SITE['email'], SITE['email'], SITE['operator_ko'])
-        copy = '© 2026 ECOSHIELD. All rights reserved.'
+                '<span>EXOSKIN은 %s의 에어로젤 소재 브랜드입니다</span><span>숴싱 신소재(Shuoxing New Materials) 한국 공식 총판</span><span>제조원: 숴싱 신소재(중국)</span>') % (SITE['operator_ko'], SITE['ceo_ko'], SITE['bizno'], SITE['addr_ko'], SITE['tel_link'], SITE['tel'], SITE['email'], SITE['email'], SITE['operator_ko'])
+        copy = '© 2026 EXOSKIN. All rights reserved.'
         sub = '운영사 <a href="%s" target="_blank" rel="noopener" style="color:#fff">주식회사 에코아트 eco-art.kr</a> · 사이트 이미지는 적용 예시를 표현한 연출 이미지입니다.' % SITE['operator_url']
         tag = '에어로젤 방화·단열 소재 전문 브랜드<br>숴싱 신소재 한국 공식 총판'
     else:
         legal = (f'<a href="{url(cur, "en/privacy/")}" class="pv">Privacy Policy</a><a href="{url(cur, "en/terms/")}">Terms of Use</a>'
                  f'<a href="{url(cur, "en/cookies/")}">Cookie Policy</a><a href="{url(cur, "en/sitemap/")}">Sitemap</a>')
         info = ('<span>%s</span><span>CEO %s</span><span>Business Reg. No. %s</span><br><span>%s</span><br>'
-                '<span>Tel <a href="tel:%s" style="color:inherit">%s</a></span><span>Email <a href="mailto:%s" style="color:inherit">%s</a></span><br><span>ECOSHIELD is an aerogel materials brand of %s</span><span>Official Korea Distributor of Shuoxing New Materials</span><span>Manufactured by Shuoxing New Materials (China)</span>') % (SITE['operator_en'], SITE['ceo_en'], SITE['bizno'], SITE['addr_en'], SITE['tel_link'], SITE['tel_intl'], SITE['email'], SITE['email'], SITE['operator_en'])
-        copy = '© 2026 ECOSHIELD. All rights reserved.'
+                '<span>Tel <a href="tel:%s" style="color:inherit">%s</a></span><span>Email <a href="mailto:%s" style="color:inherit">%s</a></span><br><span>EXOSKIN is an aerogel materials brand of %s</span><span>Official Korea Distributor of Shuoxing New Materials</span><span>Manufactured by Shuoxing New Materials (China)</span>') % (SITE['operator_en'], SITE['ceo_en'], SITE['bizno'], SITE['addr_en'], SITE['tel_link'], SITE['tel_intl'], SITE['email'], SITE['email'], SITE['operator_en'])
+        copy = '© 2026 EXOSKIN. All rights reserved.'
         sub = 'Operated by <a href="%s" target="_blank" rel="noopener" style="color:#fff">ECOART Co., Ltd.</a> · Images on this site are illustrative.' % SITE['operator_url']
         tag = 'Aerogel fire protection &amp; thermal insulation<br>Official Korea Distributor of Shuoxing New Materials'
     return f'''<footer class="ft">
@@ -217,7 +217,7 @@ KO_PATHS, EN_PATHS = set(), set()
 def write(lang, path, title, desc, body, over=False, keywords='', noindex=False, extra_head=''):
     k = lang == 'ko'
     alt = ko_en_pair(lang, path)
-    full_title = (title + ' | ECOSHIELD 에코쉴드') if (k and title) else ((title + ' | ECOSHIELD') if title else ('ECOSHIELD 에코쉴드 | 에어로젤 방화·단열 솔루션' if k else 'ECOSHIELD | Aerogel Fire Protection & Thermal Insulation'))
+    full_title = (title + ' | EXOSKIN 엑소스킨') if (k and title) else ((title + ' | EXOSKIN') if title else ('EXOSKIN 엑소스킨 | 에어로젤 방화·단열 솔루션' if k else 'EXOSKIN | Aerogel Fire Protection & Thermal Insulation'))
     canon = SITE['domain'] + '/' + path
     hre = ''
     has_ko = (path if not k else path) if k else path[3:]
@@ -238,7 +238,7 @@ def write(lang, path, title, desc, body, over=False, keywords='', noindex=False,
 {('<meta name="keywords" content="%s">' % esc(keywords)) if keywords else ''}
 {'<meta name="robots" content="noindex">' if noindex else ''}
 <link rel="canonical" href="{canon}">{hre}
-<meta property="og:type" content="website"><meta property="og:site_name" content="ECOSHIELD"><meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{ogimg}"><meta property="og:locale" content="{'ko_KR' if k else 'en_US'}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="EXOSKIN"><meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{ogimg}"><meta property="og:locale" content="{'ko_KR' if k else 'en_US'}">
 <meta name="theme-color" content="#001288">
 <link rel="icon" type="image/png" sizes="64x64" href="{asset(path, 'img/favicon-64.png')}"><link rel="apple-touch-icon" href="{asset(path, 'img/symbol.png')}">
 <link rel="stylesheet" href="{asset(path, 'css/style.css')}">
@@ -279,7 +279,7 @@ def sec_hd(eyebrow, h2, lead='', right='', center=False, cls=''):
 
 def cta_band(lang, cur, image='space-10', title=None, lead=None):
     k = lang == 'ko'
-    t = title or ('현장에 맞는 제품,<br>에코쉴드가 함께 찾겠습니다.' if k else 'Let us find the right product<br>for your project.')
+    t = title or ('현장에 맞는 제품,<br>엑소스킨이 함께 찾겠습니다.' if k else 'Let us find the right product<br>for your project.')
     l = lead or ('도면이나 현장 조건(면적·온도·요구 내화시간)을 보내 주시면 담당 엔지니어가 제품과 소요량을 제안해 드립니다.' if k else
                  'Send us drawings or site conditions (area, temperature, required fire rating) and our engineers will recommend products and quantities.')
     b1 = ('견적·샘플 문의', 'contact/quote/') if k else ('Request a Quote', 'contact/quote/')
@@ -353,17 +353,17 @@ def page_home(lang):
         sl += f'''<div class="slide{' on' if i == 0 else ''}" aria-roledescription="slide" aria-label="{i+1} / 4"><div class="bg" style="background-image:url('{img(cur, im)}')"></div><div class="wrap"><div class="kw" aria-hidden="true">{kwh}</div><div class="hero-copy"><span class="eyebrow">{eb}</span><p>{tx}</p><div class="hero-btns"><a class="btn btn-pri" href="{url(cur, lp(lang, bp))}">{bl} {ARROW}</a><a class="btn btn-ghost-w" href="{url(cur, lp(lang, 'contact/quote/'))}">{L('견적 문의', 'Request a Quote')}</a></div></div></div></div>'''
     tabs = ''.join('<button type="button" class="%s">%s</button>' % ('on' if i == 0 else '', s[6]) for i, s in enumerate(slides))
     hero = f'''<section class="hero" aria-roledescription="carousel" aria-label="{L('주요 솔루션', 'Key solutions')}">
-<h1 class="sr-only">{L('ECOSHIELD 에코쉴드 — 에어로젤 방화·단열 솔루션, 숴싱 신소재 한국 공식 총판', 'ECOSHIELD — Aerogel fire protection and thermal insulation, Official Korea Distributor of Shuoxing New Materials')}</h1>
+<h1 class="sr-only">{L('EXOSKIN 엑소스킨 — 에어로젤 방화·단열 솔루션, 숴싱 신소재 한국 공식 총판', 'EXOSKIN — Aerogel fire protection and thermal insulation, Official Korea Distributor of Shuoxing New Materials')}</h1>
 {sl}
 <div class="hero-ctrl"><div class="wrap"><span class="hero-num"><b>01</b> <span>/ 04</span></span><span class="hero-bar"><i></i></span><button class="hero-pause" type="button" aria-label="{L('자동 넘김 정지', 'Pause')}" aria-pressed="false"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z" fill="currentColor"/></svg></button><div class="hero-tabs">{tabs}</div></div></div>
 <div class="scroll-cue">SCROLL<i></i></div>
 </section>'''.replace('<b class="ac">', '<b class="ac" style="font-weight:inherit">').replace('<b class="ol">', '<b class="ol" style="font-weight:inherit">')
     # hero kw em styles -> b with classes ac/ol (css .kw .ac/.ol)
     about = f'''<section class="sec dark"><div class="wrap">
-<span class="eyebrow rv">About ECOSHIELD</span>
+<span class="eyebrow rv">About EXOSKIN</span>
 <div class="kinetic rv">Aerogel<br><span class="ol">Fire</span> &amp; <span class="ac">Thermal</span><br>Solutions</div>
-<div class="about-grid"><p class="rv">{L('<b>에코쉴드(ECOSHIELD)</b>는 중국 숴싱 신소재(Shuoxing New Materials)가 생산하는 에어로젤 방화·단열 소재를 한국에 공급하는 <b>공식 총판 브랜드</b>입니다. 친환경(Eco)과 보호(Shield)라는 이름처럼, 사람과 건물과 설비를 더 얇고 안전하게 지킵니다.', '<b>ECOSHIELD</b> is the <b>official Korea distributor brand</b> for aerogel fire-protection and insulation materials made by Shuoxing New Materials in China. True to its name, Eco + Shield, it protects people, buildings and equipment in a thinner, safer way.')}</p>
-<div class="rv d1"><p>{L('운영사 주식회사 에코아트가 수입 검수부터 국내 재고·납기, 현장 기술 상담까지 책임집니다.', 'Operated by ECOART Co., Ltd., we handle inspection, logistics, technical support and partner enablement from Korea.')}</p><p style="margin-top:28px"><a class="btn btn-ghost-w" href="{url(cur, lp(lang, 'about/ecoshield/'))}">{L('에코쉴드 소개', 'About ECOSHIELD')} {ARROW}</a></p></div></div>
+<div class="about-grid"><p class="rv">{L('<b>엑소스킨(EXOSKIN)</b>는 중국 숴싱 신소재(Shuoxing New Materials)가 생산하는 에어로젤 방화·단열 소재를 한국에 공급하는 <b>공식 총판 브랜드</b>입니다. 바깥(Exo)과 피부(Skin)를 합친 이름처럼, 건물과 설비를 얇은 보호 외피로 감싸 화재와 열로부터 지킵니다.', '<b>EXOSKIN</b> is the <b>official Korea distributor brand</b> for aerogel fire-protection and insulation materials made by Shuoxing New Materials in China. True to its name, Exo + Skin, it wraps buildings and equipment in a thin protective outer skin against fire and heat.')}</p>
+<div class="rv d1"><p>{L('운영사 주식회사 에코아트가 수입 검수부터 국내 재고·납기, 현장 기술 상담까지 책임집니다.', 'Operated by ECOART Co., Ltd., we handle inspection, logistics, technical support and partner enablement from Korea.')}</p><p style="margin-top:28px"><a class="btn btn-ghost-w" href="{url(cur, lp(lang, 'about/ecoshield/'))}">{L('엑소스킨 소개', 'About EXOSKIN')} {ARROW}</a></p></div></div>
 <div class="stats rv"><div class="stat"><b>180<small>{L('분', 'min')}</small></b><span>{L('최대 내화시간 (철골·콘크리트용)', 'Max. fire resistance (steel & concrete)')}</span></div><div class="stat"><b>1500<small>℃</small></b><span>{L('고온 내열 도료 최고 등급', 'Top grade, high-temp coating')}</span></div><div class="stat"><b>0.021</b><span>{L('단열 펠트 열전도율 W/(m·K)', 'Blanket thermal conductivity W/(m·K)')}</span></div><div class="stat"><b>11<small>{L('종', '')}</small></b><span>{L('4개 제품군 라인업', 'Products in 4 families')}</span></div></div>
 {note_test(lang)}
 </div></section>'''
@@ -402,7 +402,7 @@ def page_home(lang):
               ('photo-valves', 'P23', L('배관·밸브 · 보온 도장', 'Pipes & valves · Insulation coating')), ('photo-electrical', 'P13', L('전기 설비 · 방화·방습 코팅', 'Electrical equipment · Protective coating')),
               ('photo-furnace', 'P24', L('용해로·고온 설비 · 초고온 단열', 'Furnaces · Ultra-high-temp insulation')), ('photo-roof', 'P21', L('건물 옥상 · 차열 단열 도장', 'Rooftop · Heat-reflective coating'))]
     cards = ''.join(f'''<a class="scard" href="{url(cur, lp(lang, product_path(PR[p])))}"><div class="ph"><img src="{img(cur, s)}" alt="" loading="lazy"></div><span class="cat">{esc(t)}</span><h4>{esc(PR[p][lang]['name'])}</h4></a>''' for s, p, t in scenes)
-    strip = f'''<section class="sec soft" style="overflow:hidden"><div class="wrap">{sec_hd('In Action', L('현장에서 만나는 에코쉴드', 'ECOSHIELD on site'), L('시공 방식과 적용 공간을 장면으로 확인하세요. (이미지는 적용 예시를 표현한 연출 이미지입니다)', 'See how each product is applied. (Images are illustrative.)'), '<div class="strip-ctrl rv" data-strip="#strip"><button type="button" data-dir="prev" aria-label="prev" style="transform:scaleX(-1)">%s</button><button type="button" data-dir="next" aria-label="next">%s</button></div>' % (ARROW, ARROW))}</div>
+    strip = f'''<section class="sec soft" style="overflow:hidden"><div class="wrap">{sec_hd('In Action', L('현장에서 만나는 엑소스킨', 'EXOSKIN on site'), L('시공 방식과 적용 공간을 장면으로 확인하세요. (이미지는 적용 예시를 표현한 연출 이미지입니다)', 'See how each product is applied. (Images are illustrative.)'), '<div class="strip-ctrl rv" data-strip="#strip"><button type="button" data-dir="prev" aria-label="prev" style="transform:scaleX(-1)">%s</button><button type="button" data-dir="next" aria-label="next">%s</button></div>' % (ARROW, ARROW))}</div>
 <div class="strip" id="strip">{cards}</div></section>'''
     tiles = [('target', L('제품 선택 가이드', 'Product Finder'), L('공간·온도·목적 3가지만 고르면 맞는 제품을 추천합니다.', 'Pick space, temperature and purpose to get a recommendation.'), 'products/finder/'),
              ('doc', L('카탈로그·브로슈어', 'Catalogs'), L('국문·영문 종합 카탈로그와 제품군별 리플릿.', 'Korean and English catalogs and product leaflets.'), 'resources/catalogs/'),
@@ -412,26 +412,26 @@ def page_home(lang):
     support = f'''<section class="sec"><div class="wrap">{sec_hd('Support', L('설계부터 시공까지,<br>필요한 자료를 한곳에', 'Everything you need,<br>from design to installation'))}<div class="tiles">{tl}</div></div></section>'''
     partner = ''
     if not k:
-        partner = f'''<section class="sec dark"><div class="wrap split"><div class="rv"><span class="eyebrow">Global Partnership</span><h2 class="h2">Grow with ECOSHIELD<br>in your market</h2><p class="lead">We are looking for distributors, applicators and EPC partners who want to bring aerogel fire protection and insulation to their customers. Tell us about your business and target market, and we will reply within 2 business days (Korea time).</p><div class="hero-btns"><a class="btn btn-pri" href="{url(cur, 'en/contact/partner/')}">Become a Partner {ARROW}</a><a class="btn btn-ghost-w" href="{url(cur, 'en/about/global-network/')}">Global Network</a></div></div>
+        partner = f'''<section class="sec dark"><div class="wrap split"><div class="rv"><span class="eyebrow">Global Partnership</span><h2 class="h2">Grow with EXOSKIN<br>in your market</h2><p class="lead">We are looking for distributors, applicators and EPC partners who want to bring aerogel fire protection and insulation to their customers. Tell us about your business and target market, and we will reply within 2 business days (Korea time).</p><div class="hero-btns"><a class="btn btn-pri" href="{url(cur, 'en/contact/partner/')}">Become a Partner {ARROW}</a><a class="btn btn-ghost-w" href="{url(cur, 'en/about/global-network/')}">Global Network</a></div></div>
 <div class="rv d1"><div class="tiles c2">{''.join('<div class="tile"><span class="ico">%s</span><h4 style="color:#fff">%s</h4><p>%s</p></div>' % (ic(a), b, c) for a, b, c in [('users', 'Training', 'Product and application training for your team.'), ('box', 'Samples', 'Sample kits for qualification and customer trials.'), ('doc', 'Sales materials', 'English catalogs, TDS/SDS and marketing assets.'), ('tool', 'Technical support', 'Specification review and on-site guidance.')])}</div></div></div></section>'''
     news_items = news_list(lang)
-    news = f'''<section class="sec tight soft"><div class="wrap">{sec_hd('Newsroom', L('에코쉴드 소식', 'News'), '', '<a class="more rv" href="%s">%s %s</a>' % (url(cur, lp(lang, 'news/notices/')), L('전체 보기', 'View all'), ARROW))}
+    news = f'''<section class="sec tight soft"><div class="wrap">{sec_hd('Newsroom', L('엑소스킨 소식', 'News'), '', '<a class="more rv" href="%s">%s %s</a>' % (url(cur, lp(lang, 'news/notices/')), L('전체 보기', 'View all'), ARROW))}
 <div class="news rv">{''.join('<a href="%s"><span class="cat">%s</span><h4>%s</h4><time>%s</time></a>' % (url(cur, lp(lang, 'news/notices/#' + n['id'])), n['cat'], n['t'], n['date']) for n in news_items)}</div></div></section>'''
     body = hero + about + products + apps + tech + strip + partner + support + news + cta_band(lang, cur)
-    write(lang, cur, '', L('에코쉴드(ECOSHIELD)는 숴싱 신소재 한국 공식 총판으로, 에어로젤 방화도료·단열도료·단열 펠트·단열 필름 11종을 공급합니다. 견적·샘플 문의, TDS·SDS 자료 제공.',
-                          'ECOSHIELD, Official Korea Distributor of Shuoxing New Materials: aerogel fire-resistant coatings, insulation coatings, blankets and film. Request a quote or become a partner.'),
-          body, over=True, keywords=L('에어로젤 방화도료, 에어로젤 단열도료, 내화도료, 철골 내화도료, 단열 펠트, 에어로젤 필름, 숴싱, 에코쉴드', 'aerogel fireproofing coating, aerogel insulation coating, aerogel blanket, thermal barrier, ECOSHIELD, Shuoxing'))
+    write(lang, cur, '', L('엑소스킨(EXOSKIN)은 숴싱 신소재 한국 공식 총판으로, 에어로젤 방화도료·단열도료·단열 펠트·단열 필름 11종을 공급합니다. 견적·샘플 문의, TDS·SDS 자료 제공.',
+                          'EXOSKIN, Official Korea Distributor of Shuoxing New Materials: aerogel fire-resistant coatings, insulation coatings, blankets and film. Request a quote or become a partner.'),
+          body, over=True, keywords=L('에어로젤 방화도료, 에어로젤 단열도료, 내화도료, 철골 내화도료, 단열 펠트, 에어로젤 필름, 숴싱, 엑소스킨', 'aerogel fireproofing coating, aerogel insulation coating, aerogel blanket, thermal barrier, EXOSKIN, Shuoxing'))
 
 def news_list(lang):
     if lang == 'ko':
         return [dict(id='n2', cat='공지', t='제품별 TDS·SDS 및 카탈로그 순차 등록 안내', date='2026.11.18',
                      body='제조사 숴싱 신소재로부터 자료를 받는 대로 자료실에 제품별 기술자료(TDS), 안전보건자료(SDS), 국문·영문 카탈로그를 순차 등록합니다. 먼저 필요하신 자료는 자료 요청으로 문의해 주세요.'),
-                dict(id='n1', cat='뉴스', t='에코쉴드(ECOSHIELD) 홈페이지를 오픈했습니다', date='2026.11.18',
-                     body='에어로젤 방화·단열 소재 전문 브랜드 에코쉴드의 공식 홈페이지를 열었습니다. 제품 11종의 사양과 적용분야, 견적·샘플 문의를 한곳에서 확인하실 수 있습니다.')]
+                dict(id='n1', cat='뉴스', t='엑소스킨(EXOSKIN) 홈페이지를 오픈했습니다', date='2026.11.18',
+                     body='에어로젤 방화·단열 소재 전문 브랜드 엑소스킨의 공식 홈페이지를 열었습니다. 제품 11종의 사양과 적용분야, 견적·샘플 문의를 한곳에서 확인하실 수 있습니다.')]
     return [dict(id='n2', cat='Notice', t='TDS, SDS and catalogs will be added progressively', date='Nov 18, 2026',
                  body='We will publish technical data sheets, safety data sheets and English catalogs as we receive them from the manufacturer. If you need a document now, please send us a request.'),
-            dict(id='n1', cat='News', t='The ECOSHIELD website is now live', date='Nov 18, 2026',
-                 body='Our new website brings together specifications, applications and quote requests for all eleven ECOSHIELD aerogel products.')]
+            dict(id='n1', cat='News', t='The EXOSKIN website is now live', date='Nov 18, 2026',
+                 body='Our new website brings together specifications, applications and quote requests for all eleven EXOSKIN aerogel products.')]
 
 # ================================================================== ABOUT
 def page_about(lang):
@@ -440,20 +440,20 @@ def page_about(lang):
     crumbs0 = (L('회사소개', 'About Us'), 'about/ecoshield/')
     # --- ecoshield
     cur = lp(lang, 'about/ecoshield/')
-    body = subvis(lang, cur, L('에코쉴드 소개', 'About ECOSHIELD'), L('에어로젤 방화·단열 소재 전문 브랜드, 숴싱 신소재 한국 공식 총판', 'Aerogel fire protection and insulation, Official Korea Distributor of Shuoxing New Materials'), 'space-08', [crumbs0, (L('에코쉴드 소개', 'About ECOSHIELD'), None)]) + lnb(lang, cur, 'about')
+    body = subvis(lang, cur, L('엑소스킨 소개', 'About EXOSKIN'), L('에어로젤 방화·단열 소재 전문 브랜드, 숴싱 신소재 한국 공식 총판', 'Aerogel fire protection and insulation, Official Korea Distributor of Shuoxing New Materials'), 'space-08', [crumbs0, (L('엑소스킨 소개', 'About EXOSKIN'), None)]) + lnb(lang, cur, 'about')
     biz = [('box', L('수입·유통', 'Import & distribution'), L('숴싱 신소재 에어로젤 제품의 국내 수입, 재고 운영, 대리점 공급', 'Importing Shuoxing aerogel products, managing stock and supplying partners')),
            ('tool', L('기술 상담', 'Technical support'), L('도면 검토, 제품 선정, 소요량 산출, 시공 가이드 제공', 'Drawing review, product selection, quantity take-off, application guidance')),
            ('users', L('시공 파트너', 'Applicator network'), L('도장·단열·소방 시공사와의 파트너 네트워크 구축', 'Building a network of coating, insulation and fire-protection contractors')),
            ('globe', L('해외 협력', 'International cooperation'), L('유통사·EPC와의 협력 문의 창구', 'A contact point for distributors and EPC partners'))]
     body += f'''<div class="page"><div class="wrap">
 <div class="block split"><div class="rv"><span class="eyebrow">Greeting</span><h2 class="h2">{L('더 얇게, 더 안전하게.<br>지켜야 할 것을 지킵니다.', 'Thinner, safer,<br>protecting what matters.')}</h2></div>
-<div class="prose rv d1"><p>{L('안녕하십니까. 에코쉴드를 찾아 주셔서 감사합니다.', 'Thank you for visiting ECOSHIELD.')}</p><p>{L('화재 안전과 에너지 효율은 이제 건물과 설비를 설계할 때 가장 먼저 따지는 기준이 되었습니다. 에코쉴드는 에어로젤이라는 소재로 이 두 가지 과제를 함께 풀고자 합니다. 얇고 가벼우면서도 불에 강하고 열을 막는 에어로젤은 기존 내화·단열 방식으로는 어려웠던 현장에 새로운 선택지가 됩니다.', 'Fire safety and energy efficiency now come first when buildings and plants are designed. ECOSHIELD tackles both with aerogel, a material that is thin and light yet resists fire and blocks heat, opening options where conventional fireproofing and insulation fall short.')}</p><p>{L('우리는 제조사 숴싱 신소재와 긴밀히 협력하여 검증된 제품을 들여오고, 국내 현장에 맞는 기술 자료와 시공 지원을 함께 제공하겠습니다. 고객의 현장을 가장 잘 이해하는 파트너가 되겠습니다.', 'Working closely with Shuoxing New Materials, we import proven products and back them with technical documentation and on-site support suited to each project.')}</p><p><b>{L('주식회사 에코아트 · ECOSHIELD 대표 심종훈', 'Jonghun Shim, CEO, ECOART Co., Ltd. (ECOSHIELD)')}</b></p></div></div>
+<div class="prose rv d1"><p>{L('안녕하십니까. 엑소스킨을 찾아 주셔서 감사합니다.', 'Thank you for visiting EXOSKIN.')}</p><p>{L('화재 안전과 에너지 효율은 이제 건물과 설비를 설계할 때 가장 먼저 따지는 기준이 되었습니다. 엑소스킨은 에어로젤이라는 소재로 이 두 가지 과제를 함께 풀고자 합니다. 얇고 가벼우면서도 불에 강하고 열을 막는 에어로젤은 기존 내화·단열 방식으로는 어려웠던 현장에 새로운 선택지가 됩니다.', 'Fire safety and energy efficiency now come first when buildings and plants are designed. EXOSKIN tackles both with aerogel, a material that is thin and light yet resists fire and blocks heat, opening options where conventional fireproofing and insulation fall short.')}</p><p>{L('우리는 제조사 숴싱 신소재와 긴밀히 협력하여 검증된 제품을 들여오고, 국내 현장에 맞는 기술 자료와 시공 지원을 함께 제공하겠습니다. 고객의 현장을 가장 잘 이해하는 파트너가 되겠습니다.', 'Working closely with Shuoxing New Materials, we import proven products and back them with technical documentation and on-site support suited to each project.')}</p><p><b>{L('주식회사 에코아트 · EXOSKIN 대표 심종훈', 'Jonghun Shim, CEO, ECOART Co., Ltd. (EXOSKIN)')}</b></p></div></div>
 <div class="block"><div class="sec-hd"><div class="rv"><span class="eyebrow">Vision &amp; Mission</span><h2 class="h3">{L('비전과 미션', 'Vision and mission')}</h2></div></div>
 <div class="tiles c2"><div class="tile rv" style="background:var(--navy);border:0"><span class="tag" style="color:var(--lime)">VISION</span><h3 style="color:#fff">{L('에어로젤 방화·단열의 기준이 되는 브랜드', 'The benchmark brand for aerogel fire protection and insulation')}</h3></div><div class="tile rv d1"><span class="tag">MISSION</span><h3>{L('검증된 소재와 정직한 기술 정보로 사람과 자산을 지킨다', 'Protect people and assets with proven materials and honest technical information')}</h3></div></div></div>
 <div class="block"><div class="sec-hd"><div class="rv"><span class="eyebrow">Business</span><h2 class="h3">{L('사업 영역', 'What we do')}</h2></div></div><div class="tiles">{''.join('<div class="tile rv d%d"><span class="ico">%s</span><h3>%s</h3><p>%s</p></div>' % (i, ic(a), b, c) for i, (a, b, c) in enumerate(biz))}</div></div>
 <div class="block split" style="align-items:start"><div class="rv"><span class="eyebrow">Company</span><h2 class="h3">{L('운영사 정보', 'Company information')}</h2>
 <div class="tbl-wrap" style="margin-top:28px"><table class="tbl"><tbody>
-<tr><th>{L('브랜드', 'Brand')}</th><td>ECOSHIELD ({L('에코쉴드', 'Eco + Shield')})</td></tr>
+<tr><th>{L('브랜드', 'Brand')}</th><td>EXOSKIN ({L('엑소스킨', 'Exo + Skin')})</td></tr>
 <tr><th>{L('법인명(운영사)', 'Company')}</th><td>{L(SITE['operator_ko'], SITE['operator_en'])} · <a href="{SITE['operator_url']}" target="_blank" rel="noopener">eco-art.kr</a></td></tr>
 <tr><th>{L('대표자', 'CEO')}</th><td>{L(SITE['ceo_ko'], SITE['ceo_en'])}</td></tr>
 <tr><th>{L('설립', 'Established')}</th><td>{L('2024년 3월', 'March 2024')}</td></tr>
@@ -465,34 +465,34 @@ def page_about(lang):
 <tr><th>{L('이메일', 'Email')}</th><td><a href="mailto:{SITE['email']}">{SITE['email']}</a></td></tr>
 <tr><th>{L('제조 파트너', 'Manufacturer')}</th><td>{L('숴싱 신소재 (Shuoxing New Materials, 중국)', 'Shuoxing New Materials (China)')}</td></tr>
 <tr><th>{L('웹사이트', 'Website')}</th><td>www.eco-shield.co.kr</td></tr></tbody></table></div></div>
-<div class="rv d1"><span class="eyebrow">History</span><h2 class="h3">{L('연혁', 'History')}</h2><ul class="tl" style="margin-top:32px"><li><b>2026.11</b><span>{L('ECOSHIELD 브랜드 수립, 홈페이지 오픈', 'ECOSHIELD brand launched, website opened')}</span></li><li><b>2026</b><span>{L('숴싱 신소재 에어로젤 제품 한국 공급 준비', 'Preparing supply of Shuoxing aerogel products in Korea')}</span></li><li><b>2024.03</b><span>{L('주식회사 에코아트 설립', 'ECOART Co., Ltd. founded')}</span></li></ul><p class="note">{L('※ 연혁은 주요 일정 확정 시 업데이트합니다.', '※ Updated as milestones are confirmed.')}</p></div></div>
+<div class="rv d1"><span class="eyebrow">History</span><h2 class="h3">{L('연혁', 'History')}</h2><ul class="tl" style="margin-top:32px"><li><b>2026.11</b><span>{L('EXOSKIN 브랜드 수립, 홈페이지 오픈', 'EXOSKIN brand launched, website opened')}</span></li><li><b>2026</b><span>{L('숴싱 신소재 에어로젤 제품 한국 공급 준비', 'Preparing supply of Shuoxing aerogel products in Korea')}</span></li><li><b>2024.03</b><span>{L('주식회사 에코아트 설립', 'ECOART Co., Ltd. founded')}</span></li></ul><p class="note">{L('※ 연혁은 주요 일정 확정 시 업데이트합니다.', '※ Updated as milestones are confirmed.')}</p></div></div>
 </div></div>''' + cta_band(lang, cur)
-    write(lang, cur, L('에코쉴드 소개', 'About ECOSHIELD'), L('에코쉴드는 숴싱 신소재 에어로젤 방화·단열 소재의 한국 공식 총판 브랜드입니다. 운영사 주식회사 에코아트.', 'ECOSHIELD is the official Korea distributor brand for Shuoxing aerogel materials, operated by ECOART Co., Ltd.'), body)
+    write(lang, cur, L('엑소스킨 소개', 'About EXOSKIN'), L('엑소스킨은 숴싱 신소재 에어로젤 방화·단열 소재의 한국 공식 총판 브랜드입니다. 운영사 주식회사 에코아트.', 'EXOSKIN is the official Korea distributor brand for Shuoxing aerogel materials, operated by ECOART Co., Ltd.'), body)
 
     # --- brand
     cur = lp(lang, 'about/brand/')
-    body = subvis(lang, cur, L('브랜드 스토리', 'Brand Story'), 'Technology that enhances safety wherever protection is needed.', 'space-01', [crumbs0, (L('브랜드 스토리', 'Brand Story'), None)]) + lnb(lang, cur, 'about')
+    body = subvis(lang, cur, L('브랜드 스토리', 'Brand Story'), 'Safety wherever protection is needed.', 'space-01', [crumbs0, (L('브랜드 스토리', 'Brand Story'), None)]) + lnb(lang, cur, 'about')
     prom = [('feather', L('더 얇게', 'Thinner'), L('공간과 무게를 덜 차지하는 소재로 설계의 자유를 넓힙니다.', 'Materials that take less space and weight, freeing up design.')),
             ('shield', L('더 안전하게', 'Safer'), L('화재와 고열로부터 사람과 구조물을 지키는 성능에 집중합니다.', 'Focused on protecting people and structures from fire and heat.')),
             ('leaf', L('더 정직하게', 'More honest'), L('시험 기준과 원산지를 분명히 밝히고, 확인된 정보만 말합니다.', 'We state test bases and origin clearly and claim only what is verified.'))]
     body += f'''<div class="page"><div class="wrap">
-<div class="block split"><div class="rv"><span class="eyebrow">Brand</span><h2 class="h2">ECO + SHIELD</h2><p class="lead">{L('에코쉴드는 친환경(Eco)과 방패(Shield)를 합친 이름입니다. 유해물질 걱정 없는 소재로, 화재와 열로부터 지켜야 할 것을 지킨다는 약속을 담았습니다.', 'ECOSHIELD combines Eco and Shield: a promise to protect what matters from fire and heat, with materials free of harmful emissions.')}</p></div>
+<div class="block split"><div class="rv"><span class="eyebrow">Brand</span><h2 class="h2">EXO + SKIN</h2><p class="lead">{L('엑소스킨은 바깥(Exo)과 피부(Skin)를 합친 이름으로, 몸 바깥을 감싸 지키는 외골격(Exoskeleton)에서 왔습니다. 건물과 설비를 얇은 보호 외피로 감싸 화재와 열로부터 지킨다는 약속을 담았습니다.', 'EXOSKIN combines Exo (outer) and Skin, inspired by the exoskeleton that protects from the outside: a promise to wrap buildings and equipment in a thin protective skin against fire and heat.')}</p></div>
 <div class="rv d1" style="background:var(--soft);border-radius:var(--radius);padding:64px 48px;display:grid;place-items:center"><img src="{asset(cur, 'img/logo-center.png')}" alt="EXOSKIN logo" style="width:100%;max-width:360px"></div></div>
 <div class="block"><div class="sec-hd"><div class="rv"><span class="eyebrow">Logo</span><h2 class="h3">{L('로고의 의미', 'About the logo')}</h2></div></div>
-<div class="tiles c3"><div class="tile rv"><span class="ico" style="background:#E90102;color:#fff">{ic('leaf')}</span><h3>{L('빨강 · ECO', 'Red · ECO')}</h3><p>{L('사람과 환경을 먼저 생각하는 열정, 그리고 불을 다스리는 기술을 뜻합니다.', 'Passion for people and the environment, and the technology that keeps fire in check.')}</p></div>
-<div class="tile rv d1"><span class="ico" style="background:#001288;color:#fff">{ic('shield')}</span><h3>{L('남색 · SHIELD', 'Navy · SHIELD')}</h3><p>{L('화재와 열로부터 지켜 주는 보호막, 그리고 신뢰를 뜻합니다.', 'A protective shield against fire and heat, and the trust behind it.')}</p></div>
-<div class="tile rv d2"><span class="ico" style="background:#fff;border:1px solid var(--line);padding:6px"><img src="{asset(cur, 'img/symbol.png')}" alt="" style="width:100%"></span><h3>{L('E·S 큐브 심볼', 'E·S cube symbol')}</h3><p>{L('E와 S를 맞물려 만든 입체 큐브. 어디서든 단단하게 지키는 구조와 안전을 상징합니다.', 'E and S interlocked into a solid cube: a structure that protects firmly, wherever it is needed.')}</p></div></div>
-<div class="callout rv"><b>Tagline</b> — Technology that enhances safety wherever protection is needed. {L('(보호가 필요한 모든 곳에서 안전을 높이는 기술)', '')}</div>
+<div class="tiles c3"><div class="tile rv"><span class="ico" style="background:#E90102;color:#fff">{ic('leaf')}</span><h3>{L('빨강 · EXO', 'Red · EXO')}</h3><p>{L('바깥에서 먼저 막아서는 힘, 그리고 불을 다스리는 기술을 뜻합니다.', 'The strength that stands guard on the outside, and the technology that keeps fire in check.')}</p></div>
+<div class="tile rv d1"><span class="ico" style="background:#001288;color:#fff">{ic('shield')}</span><h3>{L('남색 · SKIN', 'Navy · SKIN')}</h3><p>{L('대상을 빈틈없이 감싸는 얇은 보호 외피, 그리고 신뢰를 뜻합니다.', 'A thin protective skin that wraps every surface, and the trust behind it.')}</p></div>
+<div class="tile rv d2"><span class="ico" style="background:#fff;border:1px solid var(--line);padding:6px"><img src="{asset(cur, 'img/symbol.png')}" alt="" style="width:100%"></span><h3>{L('E·S 큐브 심볼', 'E·S cube symbol')}</h3><p>{L('EXO의 E와 SKIN의 S를 맞물려 만든 입체 큐브. 바깥을 단단히 감싸 지키는 외피 구조와 안전을 상징합니다.', 'The E of EXO and the S of SKIN interlocked into a solid cube: an outer shell that protects firmly, wherever it is needed.')}</p></div></div>
+<div class="callout rv"><b>Tagline</b> — Safety wherever protection is needed. {L('(필요한 곳 어디서나, 안전을 지키는 기술)', '')}</div>
 <div class="chipset rv" style="margin-top:28px"><span class="chip" style="background:#E90102;color:#fff">Red #E90102</span><span class="chip" style="background:#001288;color:#fff">Navy #001288</span><span class="chip" style="background:#1A2BE8;color:#fff">Blue #1A2BE8</span><span class="chip">Gray #3B4550</span></div></div>
 <div class="block"><div class="sec-hd"><div class="rv"><span class="eyebrow">Promise</span><h2 class="h3">{L('브랜드 약속', 'Our promises')}</h2></div></div><div class="tiles c3">{''.join('<div class="tile rv d%d"><span class="ico">%s</span><h3>%s</h3><p>%s</p></div>' % (i, ic(a), b, c) for i, (a, b, c) in enumerate(prom))}</div></div>
 </div></div>''' + cta_band(lang, cur)
-    write(lang, cur, L('브랜드 스토리', 'Brand Story'), L('ECOSHIELD 이름과 로고의 의미, 브랜드 약속.', 'The meaning behind the ECOSHIELD name and logo, and our brand promises.'), body)
+    write(lang, cur, L('브랜드 스토리', 'Brand Story'), L('EXOSKIN 이름과 로고의 의미, 브랜드 약속.', 'The meaning behind the EXOSKIN name and logo, and our brand promises.'), body)
 
     # --- manufacturer
     cur = lp(lang, 'about/manufacturer/')
     body = subvis(lang, cur, L('제조 파트너', 'Manufacturing Partner'), L('숴싱 신소재(Shuoxing New Materials)', 'Shuoxing New Materials'), 'space-12', [crumbs0, (L('제조 파트너', 'Manufacturing Partner'), None)]) + lnb(lang, cur, 'about')
     body += f'''<div class="page"><div class="wrap">
-<div class="block split"><div class="rv"><span class="eyebrow">Manufacturer</span><h2 class="h2">{L('제조원을<br>분명히 밝힙니다', 'We are clear<br>about origin')}</h2><p class="lead">{L('에코쉴드의 모든 제품은 중국 숴싱 신소재(Shuoxing New Materials)가 생산하며, 에코쉴드(주식회사 에코아트)는 한국 공식 총판으로서 수입·유통과 기술 지원을 맡습니다.', 'All ECOSHIELD products are manufactured by Shuoxing New Materials in China. ECOSHIELD (ECOART Co., Ltd.) is the official Korea distributor, handling import, distribution and technical support.')}</p>
+<div class="block split"><div class="rv"><span class="eyebrow">Manufacturer</span><h2 class="h2">{L('제조원을<br>분명히 밝힙니다', 'We are clear<br>about origin')}</h2><p class="lead">{L('엑소스킨의 모든 제품은 중국 숴싱 신소재(Shuoxing New Materials)가 생산하며, 엑소스킨(주식회사 에코아트)는 한국 공식 총판으로서 수입·유통과 기술 지원을 맡습니다.', 'All EXOSKIN products are manufactured by Shuoxing New Materials in China. EXOSKIN (ECOART Co., Ltd.) is the official Korea distributor, handling import, distribution and technical support.')}</p>
 <div class="callout"><b>{L('원산지 표기', 'Country of origin')}</b> — {L('제조국: 중국 (Made in China). 제품 포장·서류(원산지증명서, TDS·SDS)에 제조원과 원산지를 표기합니다.', 'Made in China. Manufacturer and origin are shown on packaging and documents (certificate of origin, TDS/SDS).')}</div></div>
 <div class="ph rv d1"><img src="{img(cur, 'space-12')}" alt="" loading="lazy"><figcaption style="position:absolute;left:16px;bottom:14px;font-size:12px;color:#fff;background:rgba(8,26,46,.6);padding:4px 10px;border-radius:999px">{L('연출 이미지 · 제조사 공장 사진 수령 후 교체', 'Illustrative · to be replaced with factory photos')}</figcaption></div></div>
 <div class="block"><h2 class="h3 rv">{L('회사 개요', 'Company overview')}</h2><div class="tbl-wrap rv" style="margin-top:28px"><table class="tbl"><tbody>
@@ -500,15 +500,15 @@ def page_about(lang):
 <tr><th>{L('소재지', 'Location')}</th><td>{L('중국', 'China')} <span class="pending">{L('상세 주소 확인 중', 'Details to be confirmed')}</span></td></tr>
 <tr><th>{L('주요 제품', 'Main products')}</th><td>{L('에어로젤 방화도료, 에어로젤 보온·단열 도료, 에어로젤 단열 펠트, 에어로젤 단열 필름', 'Aerogel fire-resistant coatings, insulation coatings, blankets and film')}</td></tr>
 <tr><th>{L('수출 실적', 'Export references')}</th><td>{L('캐나다, 한국, 인도네시아, 필리핀, 태국 (철골 구조용 내화도료 기준, 제조사 자료)', 'Canada, Korea, Indonesia, the Philippines, Thailand (steel fireproofing coating, per manufacturer)')}</td></tr>
-<tr><th>{L('한국 총판', 'Korea distributor')}</th><td>{L('ECOSHIELD (주식회사 에코아트)', 'ECOSHIELD (ECOART Co., Ltd.)')}</td></tr></tbody></table></div></div>
+<tr><th>{L('한국 총판', 'Korea distributor')}</th><td>{L('EXOSKIN (주식회사 에코아트)', 'EXOSKIN (ECOART Co., Ltd.)')}</td></tr></tbody></table></div></div>
 <div class="block"><h2 class="h3 rv">{L('준비 중인 자료', 'Coming soon')}</h2><div class="tiles" style="margin-top:28px">{''.join('<div class="tile rv"><span class="ico">%s</span><h4>%s</h4><p><span class="pending">%s</span></p></div>' % (ic(a), b, L('자료 수령 후 게시', 'To be published')) for a, b in [('box', L('생산설비·연구소 사진', 'Plant & R&D photos')), ('doc', L('특허 목록', 'Patents')), ('globe', L('수출 실적 상세', 'Export details')), ('flag', L('한국 공식 총판 인증서', 'Korea distributorship certificate'))])}</div></div>
 <div class="block" style="text-align:center"><a class="btn btn-navy" href="{url(cur, lp(lang, 'technology/certifications/'))}">{L('인증·시험성적서 보기', 'View test reports')} {ARROW}</a></div>
 </div></div>'''
-    write(lang, cur, L('제조 파트너', 'Manufacturing Partner'), L('에코쉴드 제품의 제조원 숴싱 신소재(중국) 소개와 원산지 안내.', 'About Shuoxing New Materials (China), manufacturer of ECOSHIELD products.'), body)
+    write(lang, cur, L('제조 파트너', 'Manufacturing Partner'), L('엑소스킨 제품의 제조원 숴싱 신소재(중국) 소개와 원산지 안내.', 'About Shuoxing New Materials (China), manufacturer of EXOSKIN products.'), body)
 
     # --- quality
     cur = lp(lang, 'about/quality/')
-    body = subvis(lang, cur, L('품질·공급 체계', 'Quality & Supply'), L('수입품의 품질과 납기, 에코쉴드가 책임집니다.', 'Quality and delivery you can rely on.'), 'space-11', [crumbs0, (L('품질·공급 체계', 'Quality & Supply'), None)]) + lnb(lang, cur, 'about')
+    body = subvis(lang, cur, L('품질·공급 체계', 'Quality & Supply'), L('수입품의 품질과 납기, 엑소스킨이 책임집니다.', 'Quality and delivery you can rely on.'), 'space-11', [crumbs0, (L('품질·공급 체계', 'Quality & Supply'), None)]) + lnb(lang, cur, 'about')
     steps = [(L('생산·출하 검사', 'Production & QC'), L('제조사 공정 검사 및 출하 전 로트별 품질 확인', 'Manufacturer in-process checks and lot inspection before shipment')),
              (L('수입·통관', 'Import & customs'), L('원산지증명서·SDS 등 서류 확인 후 통관', 'Customs clearance with certificate of origin and SDS')),
              (L('입고 검수', 'Incoming inspection'), L('외관·수량·로트 번호·유효기간 확인', 'Checks on appearance, quantity, lot number and shelf life')),
@@ -522,7 +522,7 @@ def page_about(lang):
     ('doc', L('서류 지원', 'Documentation'), L('TDS·SDS, 원산지증명서, 시험성적서를 제공합니다.', 'TDS, SDS, certificate of origin and test reports.'))]))}</div></div>
 {'' if k else '<div class="block"><h2 class="h3 rv">Export terms</h2><div class="tbl-wrap rv" style="margin-top:28px"><table class="tbl"><tbody><tr><th>Port of loading</th><td>Confirmed per order (Korea or direct from manufacturer)</td></tr><tr><th>MOQ</th><td>Confirmed per product and market</td></tr><tr><th>Lead time</th><td>Confirmed per order and quantity</td></tr><tr><th>Packaging</th><td>Pallet quantity per product: to be published with catalogs</td></tr><tr><th>Incoterms</th><td>FOB / CIF / DAP on request</td></tr></tbody></table></div></div>'}
 </div></div>''' + cta_band(lang, cur)
-    write(lang, cur, L('품질·공급 체계', 'Quality & Supply'), L('에코쉴드의 수입 검수 절차, 로트 관리, 국내 재고와 기술 지원 체계.', 'ECOSHIELD supply process: inspection, lot traceability, local stock and technical support.'), body)
+    write(lang, cur, L('품질·공급 체계', 'Quality & Supply'), L('엑소스킨의 수입 검수 절차, 로트 관리, 국내 재고와 기술 지원 체계.', 'EXOSKIN supply process: inspection, lot traceability, local stock and technical support.'), body)
 
     # --- global network
     cur = lp(lang, 'about/global-network/')
@@ -532,28 +532,28 @@ def page_about(lang):
 <circle cx="700" cy="178" r="9" fill="#F26B1D"/><circle cx="700" cy="178" r="20" fill="none" stroke="#F26B1D" opacity=".5"/>
 <circle cx="806" cy="150" r="9" fill="#FF4B4B"/><circle cx="806" cy="150" r="22" fill="none" stroke="#FF4B4B" opacity=".5"/>
 <g fill="rgba(255,255,255,.55)"><circle cx="230" cy="150" r="5"/><circle cx="480" cy="130" r="5"/><circle cx="560" cy="220" r="5"/><circle cx="740" cy="260" r="5"/><circle cx="860" cy="320" r="5"/><circle cx="320" cy="300" r="5"/></g>
-<text x="716" y="206" fill="#fff" font-size="15" font-weight="700">MANUFACTURER · CHINA</text><text x="822" y="140" fill="#fff" font-size="15" font-weight="700">ECOSHIELD · KOREA</text></svg>'''
+<text x="716" y="206" fill="#fff" font-size="15" font-weight="700">MANUFACTURER · CHINA</text><text x="822" y="140" fill="#fff" font-size="15" font-weight="700">EXOSKIN · KOREA</text></svg>'''
     body += f'''<div class="page"><div class="wrap">
-<div class="block"><div class="map-box rv">{world}<div class="map-legend"><span><i style="background:#FF4B4B"></i>{L('한국 총판 (ECOSHIELD)', 'Korea distributor (ECOSHIELD)')}</span><span><i style="background:#F26B1D"></i>{L('제조 거점 (숴싱 신소재, 중국)', 'Manufacturer (Shuoxing, China)')}</span><span><i style="background:rgba(255,255,255,.55)"></i>{L('파트너 모집 지역', 'Partner opportunities')}</span></div></div>
+<div class="block"><div class="map-box rv">{world}<div class="map-legend"><span><i style="background:#FF4B4B"></i>{L('한국 총판 (EXOSKIN)', 'Korea distributor (EXOSKIN)')}</span><span><i style="background:#F26B1D"></i>{L('제조 거점 (숴싱 신소재, 중국)', 'Manufacturer (Shuoxing, China)')}</span><span><i style="background:rgba(255,255,255,.55)"></i>{L('파트너 모집 지역', 'Partner opportunities')}</span></div></div>
 <p class="note">{L('※ 해외 파트너 모집 지역은 제조사와의 총판 계약 범위가 확정되는 대로 표시합니다.', '※ Partner regions are shown as agreements are confirmed.')}</p></div>
 <div class="block split" style="align-items:start"><div class="rv"><span class="eyebrow">Partnership</span><h2 class="h3">{L('파트너 혜택', 'Partner benefits')}</h2><p class="lead">{L('국내 대리점·시공 파트너와 해외 유통사·EPC 파트너에게 제품 교육, 샘플, 영업 자료, 기술 지원을 제공합니다.', 'Distributors, applicators and EPC partners receive product training, samples, sales materials and technical support.')}</p><p style="margin-top:28px"><a class="btn btn-pri" href="{url(cur, lp(lang, 'contact/partner/'))}">{L('파트너 신청', 'Become a Partner')} {ARROW}</a></p></div>
 <div class="rv d1"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>{L('구분', 'Region')}</th><th>{L('담당', 'Contact')}</th></tr></thead><tbody><tr><td>{L('국내', 'Korea')}</td><td>{SITE['email']} · {SITE['tel']}</td></tr><tr><td>{L('해외 (Global)', 'International')}</td><td>{SITE['email']} · Tel {SITE['tel_intl']}</td></tr></tbody></table></div></div></div>
 </div></div>'''
-    write(lang, cur, L('글로벌 네트워크', 'Global Network'), L('에코쉴드 글로벌 네트워크와 파트너 모집 안내.', 'ECOSHIELD global network and partnership opportunities.'), body)
+    write(lang, cur, L('글로벌 네트워크', 'Global Network'), L('엑소스킨 글로벌 네트워크와 파트너 모집 안내.', 'EXOSKIN global network and partnership opportunities.'), body)
 
     # --- location
     cur = lp(lang, 'about/location/')
     body = subvis(lang, cur, L('오시는 길', 'Location'), '', 'space-08', [crumbs0, (L('오시는 길', 'Location'), None)]) + lnb(lang, cur, 'about')
     body += f'''<div class="page"><div class="wrap">
 <div class="block split" style="align-items:start"><div class="rv" style="border-radius:var(--radius);background:var(--soft);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px"><div><span style="display:block;width:44px;height:44px;margin:0 auto;color:var(--navy)">{ic('flag')}</span><p style="margin-top:12px"><b style="color:var(--ink)">{L(SITE['addr_ko'], SITE['addr_en'])}</b></p><p style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><a class="btn btn-pri" href="https://map.naver.com/p/search/{SITE['map_q']}" target="_blank" rel="noopener">{L('네이버 지도', 'Naver Map')}</a><a class="btn" style="border:1px solid var(--line)" href="https://map.kakao.com/?q={SITE['map_q']}" target="_blank" rel="noopener">{L('카카오맵', 'Kakao Map')}</a><a class="btn" style="border:1px solid var(--line)" href="https://www.google.com/maps/search/?api=1&amp;query={SITE['map_q']}" target="_blank" rel="noopener">Google Maps</a></p></div></div>
-<div class="rv d1"><h2 class="h3">ECOSHIELD ({L(SITE['operator_ko'], SITE['operator_en'])})</h2><div class="tbl-wrap" style="margin-top:24px"><table class="tbl"><tbody>
+<div class="rv d1"><h2 class="h3">EXOSKIN ({L(SITE['operator_ko'], SITE['operator_en'])})</h2><div class="tbl-wrap" style="margin-top:24px"><table class="tbl"><tbody>
 <tr><th>{L('주소', 'Address')}</th><td>{L(SITE['addr_ko'], SITE['addr_en'])}</td></tr>
 <tr><th>{L('전화', 'Phone')}</th><td><a href="tel:{SITE['tel_link']}">{L(SITE['tel'], SITE['tel_intl'])}</a></td></tr>
 <tr><th>{L('이메일', 'Email')}</th><td><a href="mailto:{SITE['email']}">{SITE['email']}</a></td></tr>
 <tr><th>{L('운영 시간', 'Hours')}</th><td>{L('평일 09:00~18:00 (주말·공휴일 휴무)', 'Mon–Fri 09:00–18:00 KST')}</td></tr>
 <tr><th>{L('교통', 'Access')}</th><td>{L('광양프런티어밸리 6차 2층 209호 · 방문 전 전화로 예약해 주세요.', 'Please call ahead to book a visit.')}</td></tr></tbody></table></div></div></div>
 </div></div>'''
-    write(lang, cur, L('오시는 길', 'Location'), L('에코쉴드(주식회사 에코아트) 사무실 위치와 연락처.', 'ECOSHIELD (ECOART Co., Ltd.) office location and contact.'), body)
+    write(lang, cur, L('오시는 길', 'Location'), L('엑소스킨(주식회사 에코아트) 사무실 위치와 연락처.', 'EXOSKIN (ECOART Co., Ltd.) office location and contact.'), body)
 
 # ================================================================== PRODUCTS
 def filters_html(lang):
@@ -580,7 +580,7 @@ def page_products(lang):
 <div class="pgrid">{cards}</div><div class="empty" id="pempty" hidden>{L('조건에 맞는 제품이 없습니다.', 'No products match these filters.')}</div>
 {note_test(lang)}
 </div></div>''' + cta_band(lang, cur)
-    write(lang, cur, L('전체 제품', 'Products'), L('에코쉴드 에어로젤 방화도료, 보온·단열 도료, 단열 펠트, 단열 필름 전체 제품 목록.', 'All ECOSHIELD aerogel products: fire-resistant coatings, insulation coatings, blankets and film.'), body,
+    write(lang, cur, L('전체 제품', 'Products'), L('엑소스킨 에어로젤 방화도료, 보온·단열 도료, 단열 펠트, 단열 필름 전체 제품 목록.', 'All EXOSKIN aerogel products: fire-resistant coatings, insulation coatings, blankets and film.'), body,
           keywords=L('에어로젤 제품, 방화도료, 단열도료, 단열펠트', 'aerogel products'))
 
     # group pages
@@ -595,7 +595,7 @@ def page_products(lang):
 <div class="tbl-wrap rv" style="margin-top:28px"><table class="tbl"><thead><tr><th>{L('구분', '')}</th><th>{L('내화도료', 'Fire-resistant coating')}</th><th>{L('방염(방화)도료', 'Flame-retardant coating')}</th></tr></thead><tbody>
 <tr><th>{L('목적', 'Purpose')}</th><td>{L('철골·콘크리트 등 구조체가 화재 중 일정 시간 하중을 견디도록 보호', 'Keeps structural members (steel, concrete) load-bearing for a set time in a fire')}</td><td>{L('목재·케이블·마감재가 불에 잘 붙지 않고 불길이 번지지 않도록 함', 'Keeps timber, cables and finishes from igniting and spreading flame')}</td></tr>
 <tr><th>{L('성능 지표', 'Metric')}</th><td>{L('내화시간(분)', 'Fire resistance time (min)')}</td><td>{L('착화·연소 확산 억제, 방화 등급', 'Ignition and flame-spread resistance, fire class')}</td></tr>
-<tr><th>{L('에코쉴드 제품', 'ECOSHIELD products')}</th><td>{L('철골 구조용(90~180분), 콘크리트용(60~180분)', 'Steel (90–180 min), Concrete (60–180 min)')}</td><td>{L('목구조용(30~120분), 케이블용(60~120분)', 'Timber (30–120 min), Cables (60–120 min)')}</td></tr>
+<tr><th>{L('엑소스킨 제품', 'EXOSKIN products')}</th><td>{L('철골 구조용(90~180분), 콘크리트용(60~180분)', 'Steel (90–180 min), Concrete (60–180 min)')}</td><td>{L('목구조용(30~120분), 케이블용(60~120분)', 'Timber (30–120 min), Cables (60–120 min)')}</td></tr>
 <tr><th>{L('국내 적용 시', 'In Korea')}</th><td colspan="2">{L('내화구조 인정·방염성능 기준 등 국내 인증 체계가 따로 있습니다. 표기된 내화시간은 제조사 시험 기준이며, 국내 인증 현황은 인증·시험성적서 페이지에서 안내합니다.', 'Korea has separate approval schemes for fire-resistant construction and flame retardancy. Times shown are manufacturer test values; see Certifications for status.')}</td></tr></tbody></table></div></div>'''
         elif g['id'] == 'P20':
             extra = f'''<div class="block"><span class="eyebrow rv">Grades</span><h2 class="h3 rv">{L('사용 온도별 선택', 'Choose by temperature')}</h2>
@@ -665,7 +665,7 @@ def page_product(lang, p):
 <div class="block pd-top"><figure class="pd-ph rv"><img src="{img(cur, p['img'])}" alt="{esc(t['name'])}" style="object-position:{p['pos']}"><figcaption>{L('적용 예시 이미지 · 제품 사진 준비 중', 'Illustrative application image')}</figcaption></figure>
 <div class="pd-info rv d1"><span class="tag">No.{p['no']:02d} · {esc(g[lang]['name'])}</span><h2>{esc(t['name'])}</h2><p class="en">{esc(other)}</p><p class="sum">{esc(t['sum'])}</p><div class="chipset">{chips}</div>
 <div class="btns"><a class="btn btn-pri" href="{qurl}">{L('견적·샘플 문의', 'Request a Quote')} {ARROW}</a><a class="btn btn-line" href="{url(cur, lp(lang, 'resources/data-sheets/'))}">{L('TDS 받기', 'Get TDS')}</a></div>
-<div class="pd-origin"><span><b>{L('제조원', 'Manufacturer')}</b>{L('숴싱 신소재(중국)', 'Shuoxing New Materials (China)')}</span><span><b>{L('공급', 'Supplied by')}</b>ECOSHIELD</span></div></div></div>
+<div class="pd-origin"><span><b>{L('제조원', 'Manufacturer')}</b>{L('숴싱 신소재(중국)', 'Shuoxing New Materials (China)')}</span><span><b>{L('공급', 'Supplied by')}</b>EXOSKIN</span></div></div></div>
 <div class="block"><span class="eyebrow rv">Features</span><h2 class="h3 rv">{L('제품 특징', 'Features')}</h2><div class="feat-grid">{feats}</div></div>
 <div class="block split" style="align-items:start"><div class="rv"><span class="eyebrow">Benefits</span><h2 class="h3">{L('이런 점이 좋습니다', 'Why choose it')}</h2></div><ol class="adv">{advs}</ol></div>
 <div class="block"><span class="eyebrow rv">Applications</span><h2 class="h3 rv">{L('적용 공간', 'Where to use it')}</h2><div class="space-links">{spaces}</div></div>
@@ -781,14 +781,14 @@ def page_technology(lang):
     body = subvis(lang, cur, L('인증·시험성적서', 'Certifications & Test Reports'), L('설계와 검토에 필요한 근거 자료', 'Evidence for specification and review'), 'space-01', [c0, (L('인증·시험성적서', 'Certifications'), None)]) + lnb(lang, cur, 'technology')
     rows = ''.join('<tr><td>%s</td><td>%s</td><td>%s</td><td><span class="pending">%s</span></td></tr>' % (esc(p[lang]['name']), esc(' · '.join(p[lang]['chips'])), L('제조사 시험(GB 등)', 'Manufacturer (GB etc.)'), L('수령 후 기재', 'To be added')) for p in PRODUCTS)
     body += f'''<div class="page"><div class="wrap" data-tabscope>
-<div class="callout warn rv" style="margin-top:0;margin-bottom:48px"><b>{L('표기 원칙', 'How we report')}</b> — {L('에코쉴드는 국내 인증을 취득하기 전에는 "방염 인증", "내화구조 인정" 등의 표현을 쓰지 않습니다. 모든 수치는 시험 주체와 규격(제조사·GB 등)을 함께 표기합니다.', 'We do not claim compliance with EN 13501, ASTM E119/UL 263 or other regional standards until products are tested to them. All values are reported with the test body and standard (manufacturer, GB, etc.).')}</div>
+<div class="callout warn rv" style="margin-top:0;margin-bottom:48px"><b>{L('표기 원칙', 'How we report')}</b> — {L('엑소스킨은 국내 인증을 취득하기 전에는 "방염 인증", "내화구조 인정" 등의 표현을 쓰지 않습니다. 모든 수치는 시험 주체와 규격(제조사·GB 등)을 함께 표기합니다.', 'We do not claim compliance with EN 13501, ASTM E119/UL 263 or other regional standards until products are tested to them. All values are reported with the test body and standard (manufacturer, GB, etc.).')}</div>
 <div class="tabs" data-tabs role="tablist"><button type="button" class="on" data-t="t1">{L('제조사·해외 시험', 'Manufacturer & international tests')}</button><button type="button" data-t="t2">{L('국내 인증', 'Korean certifications')}</button></div>
 <div class="tab-panel on" data-panel="t1"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>{L('대상 제품', 'Product')}</th><th>{L('주요 시험값', 'Key values')}</th><th>{L('시험 주체·규격', 'Test body / standard')}</th><th>{L('성적서 번호·발행일', 'Report no. / date')}</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="note">{L('※ GB, CE, SGS 등 성적서 원본은 제조사로부터 수령하는 대로 PDF로 열람할 수 있게 등록합니다.', '※ Original reports (GB, CE, SGS, etc.) will be posted as PDFs when received. Standard names are kept in their original form with translated summaries.')}</p></div>
 <div class="tab-panel" data-panel="t2"><div class="empty">{L('국내 인증은 시험 진행 후 취득 현황을 이곳에 게시합니다.', 'Korean certification status will be posted here once testing is complete.')}</div></div>
 <div class="block" style="text-align:center;margin-top:72px"><a class="btn btn-pri" href="{url(cur, lp(lang, 'contact/technical/'))}">{L('자료 요청 · 기술 상담', 'Request documents')} {ARROW}</a></div>
 </div></div>'''
-    write(lang, cur, L('인증·시험성적서', 'Certifications & Test Reports'), L('에코쉴드 제품의 제조사 시험 성적서와 국내 인증 현황.', 'Manufacturer test reports and certification status for ECOSHIELD products.'), body)
+    write(lang, cur, L('인증·시험성적서', 'Certifications & Test Reports'), L('엑소스킨 제품의 제조사 시험 성적서와 국내 인증 현황.', 'Manufacturer test reports and certification status for EXOSKIN products.'), body)
 
     if k:
         cur = 'technology/insights/'
@@ -797,7 +797,7 @@ def page_technology(lang):
             ('fire-vs-flame', '내화도료와 방염도료, 무엇이 다른가요?', 'scene-01', [
                 '두 도료 모두 "불에 강하게 만든다"는 점은 같지만 지키는 대상이 다릅니다. <b>내화도료</b>는 철골·콘크리트 같은 구조체가 화재 중에도 일정 시간 무너지지 않도록 보호하는 도료이고, 성능은 <b>내화시간(분)</b>으로 말합니다.',
                 '<b>방염도료</b>는 목재·마감재·케이블처럼 불이 붙어 번질 수 있는 재료에 칠해 착화와 연소 확산을 늦추는 도료입니다. 국내에서는 두 제품이 따르는 인증 체계도 다르므로, 설계 단계에서 어떤 성능이 요구되는지 먼저 확인해야 합니다.',
-                '에코쉴드의 철골 구조용·콘크리트용 제품은 내화도료, 목구조용·케이블용 제품은 방화도료로 구분됩니다. 표기된 시간은 제조사 시험 기준이며, 국내 인증 현황은 인증·시험성적서 페이지에서 안내합니다.']),
+                '엑소스킨의 철골 구조용·콘크리트용 제품은 내화도료, 목구조용·케이블용 제품은 방화도료로 구분됩니다. 표기된 시간은 제조사 시험 기준이며, 국내 인증 현황은 인증·시험성적서 페이지에서 안내합니다.']),
             ('thin-pipe-insulation', '배관 보온, 두께를 줄이는 방법', 'scene-04', [
                 '배관 보온재는 두꺼울수록 단열 성능이 좋아지지만, 좁은 파이프랙이나 밸브·플랜지 주변에서는 두께가 곧 시공 난이도가 됩니다.',
                 '에어로젤 펠트는 열전도율이 낮아 같은 단열 효과를 더 얇은 두께로 낼 수 있습니다. 칼이나 가위로 재단해 감싸면 되므로 형상이 복잡한 부위에도 대응하기 쉽습니다.',
@@ -822,12 +822,12 @@ def page_projects(lang):
 <div class="block"><span class="eyebrow rv">Applications in Action</span><h2 class="h3 rv">{L('적용 예시', 'Application examples')}</h2><p class="note rv">{L('※ 아래 이미지는 제품 적용 방식을 보여 주는 연출 이미지이며, 실제 시공 사례가 아닙니다.', '※ Illustrative images showing how products are applied; not actual projects.')}</p>
 <div class="pgrid" style="margin-top:28px">{''.join('<a class="pcard rv" href="%s"><div class="ph"><img src="%s" alt="" loading="lazy"></div><div class="bd"><span class="tag">%s</span><h3>%s</h3></div></a>' % (url(cur, lp(lang, product_path(PR[p]))), img(cur, s), L('적용 예시', 'Example'), esc(PR[p][lang]['name'])) for s, p in [('scene-01', 'P11'), ('scene-02', 'P21'), ('scene-05', 'P13'), ('scene-07', 'P14'), ('scene-04', 'P23'), ('scene-08', 'P31')])}</div></div>
 </div></div>''' + cta_band(lang, cur)
-    write(lang, cur, L('시공사례', 'Projects'), L('에코쉴드 에어로젤 제품의 국내외 시공사례.', 'ECOSHIELD aerogel projects in Korea and abroad.'), body)
+    write(lang, cur, L('시공사례', 'Projects'), L('엑소스킨 에어로젤 제품의 국내외 시공사례.', 'EXOSKIN aerogel projects in Korea and abroad.'), body)
 
     cur = lp(lang, 'projects/korea/')
     body = subvis(lang, cur, L('국내 사례', 'Korea Projects'), '', 'space-09', [c0, (L('국내 사례', 'Korea Projects'), None)]) + lnb(lang, cur, 'projects')
     body += f'''<div class="page"><div class="wrap"><div class="empty rv" style="padding:90px 24px">{ic('flag')}<h3 class="h3" style="margin-top:16px">{L('국내 시범 시공 사례를 준비하고 있습니다', 'Our first Korean pilot projects are under way')}</h3><p style="margin-top:12px">{L('첫 현장 사례가 정리되는 대로 현장 개요·적용 제품·시공 전후 사진을 공개합니다. 시범 시공에 참여를 원하시면 문의해 주세요.', 'We will publish site overviews, products used and before/after photos as soon as they are ready. Interested in a pilot? Get in touch.')}</p><p style="margin-top:28px"><a class="btn btn-pri" href="{url(cur, lp(lang, 'contact/quote/'))}">{L('유사 현장 문의', 'Ask about a similar project')} {ARROW}</a></p></div></div></div>'''
-    write(lang, cur, L('국내 사례', 'Korea Projects'), L('에코쉴드 국내 시공사례.', 'ECOSHIELD projects in Korea.'), body)
+    write(lang, cur, L('국내 사례', 'Korea Projects'), L('엑소스킨 국내 시공사례.', 'EXOSKIN projects in Korea.'), body)
 
     cur = lp(lang, 'projects/global/')
     body = subvis(lang, cur, L('해외 사례', 'Global Projects'), '', 'space-02', [c0, (L('해외 사례', 'Global Projects'), None)]) + lnb(lang, cur, 'projects')
@@ -857,7 +857,7 @@ def page_resources(lang):
              ('play', L('영상', 'Videos'), L('시공 과정과 화염 시험 영상', 'Application and flame-test videos'), 'resources/videos/')]
     body += f'''<div class="page"><div class="wrap"><div class="tiles">{''.join('<a class="tile rv d%d" href="%s"><span class="ico">%s</span><h3>%s</h3><p>%s</p><span class="more">%s %s</span></a>' % (i, url(cur, lp(lang, p)), ic(a), b, c, L('바로가기', 'Go'), ARROW) for i, (a, b, c, p) in enumerate(items))}</div>
 <div class="callout rv" style="margin-top:48px"><b>{L('자료 등록 안내', 'Note')}</b> — {L('자료는 제조사로부터 받는 대로 순차 등록합니다. 카탈로그는 바로 내려받을 수 있고, TDS·SDS·시방서는 이메일 입력 후 받으실 수 있습니다.', 'Documents are added as we receive them. Catalogs are open downloads; TDS, SDS and guides require a short form.')}</div></div></div>'''
-    write(lang, cur, L('자료실', 'Resources'), L('에코쉴드 카탈로그, TDS·SDS, 시방서·시공가이드, 영상 자료.', 'ECOSHIELD catalogs, TDS/SDS, guides and videos.'), body)
+    write(lang, cur, L('자료실', 'Resources'), L('엑소스킨 카탈로그, TDS·SDS, 시방서·시공가이드, 영상 자료.', 'EXOSKIN catalogs, TDS/SDS, guides and videos.'), body)
 
     def dl_page(path, title, desc, image, inner):
         cur = lp(lang, path)
@@ -866,7 +866,7 @@ def page_resources(lang):
         write(lang, cur, title, desc, b)
 
     dl_page('resources/catalogs/', L('카탈로그·브로슈어', 'Catalogs & Brochures'), L('영업·설계용 종합 자료', 'Sales and specification materials'), 'scene-02',
-            lambda cur: '<div class="dl">%s</div>' % ''.join('<div class="rv">%s<span><b>%s</b><span class="pending">%s</span></span></div>' % (ic('doc'), a, L('제작 중', 'In production')) for a in [L('ECOSHIELD 종합 카탈로그 (국문)', 'ECOSHIELD catalog (Korean)'), L('ECOSHIELD 종합 카탈로그 (영문)', 'ECOSHIELD catalog (English)'), L('방화도료 리플릿', 'Fire-resistant coatings leaflet'), L('보온·단열 도료 리플릿', 'Insulation coatings leaflet'), L('단열 펠트 리플릿', 'Blankets leaflet'), L('단열 필름 리플릿', 'Film leaflet')]))
+            lambda cur: '<div class="dl">%s</div>' % ''.join('<div class="rv">%s<span><b>%s</b><span class="pending">%s</span></span></div>' % (ic('doc'), a, L('제작 중', 'In production')) for a in [L('EXOSKIN 종합 카탈로그 (국문)', 'EXOSKIN catalog (Korean)'), L('EXOSKIN 종합 카탈로그 (영문)', 'EXOSKIN catalog (English)'), L('방화도료 리플릿', 'Fire-resistant coatings leaflet'), L('보온·단열 도료 리플릿', 'Insulation coatings leaflet'), L('단열 펠트 리플릿', 'Blankets leaflet'), L('단열 필름 리플릿', 'Film leaflet')]))
     dl_page('resources/data-sheets/', 'TDS·SDS' if k else 'TDS & SDS', L('제품별 기술자료·안전보건자료', 'Technical and safety data sheets'), 'scene-04',
             lambda cur: '<div class="tbl-wrap rv"><table class="tbl"><thead><tr><th>%s</th><th>TDS</th><th>%s</th><th></th></tr></thead><tbody>%s</tbody></table></div><p class="note">%s</p>' % (
                 L('제품', 'Product'), L('SDS (MSDS)', 'SDS (GHS)'),
@@ -888,7 +888,7 @@ def page_news(lang):
     body += '<div class="page"><div class="wrap"><div class="acc news-acc">%s</div></div></div>' % ''.join(
         '<details id="%s" class="rv"%s><summary style="padding-left:0"><span class="chip g" style="margin-right:12px">%s</span>%s <span style="color:var(--muted);font-weight:500;font-size:14px;margin-left:10px">%s</span></summary><div class="a">%s</div></details>' % (n['id'], ' open' if i == 0 else '', n['cat'], n['t'], n['date'], n['body']) for i, n in enumerate(items))
     body = body.replace('<summary style="padding-left:0">', '<summary class="nq" style="padding-left:0">')
-    write(lang, cur, L('공지·뉴스', 'News'), L('에코쉴드 공지사항과 소식.', 'ECOSHIELD news and notices.'), body, extra_head='<style>.news-acc summary.nq::before{content:none}</style>')
+    write(lang, cur, L('공지·뉴스', 'News'), L('엑소스킨 공지사항과 소식.', 'EXOSKIN news and notices.'), body, extra_head='<style>.news-acc summary.nq::before{content:none}</style>')
     cur = lp(lang, 'news/exhibitions/')
     body = subvis(lang, cur, L('전시회·행사', 'Exhibitions & Events'), L('현장에서 직접 만나 보세요.', 'Meet us in person.'), 'space-06', [c0, (L('전시회·행사', 'Exhibitions'), None)]) + lnb(lang, cur, 'news')
     body += f'''<div class="page"><div class="wrap">
@@ -898,7 +898,7 @@ def page_news(lang):
 {form_field(L('회사명', 'Company'), 'company', req=True)}{form_field(L('담당자', 'Name'), 'name', req=True)}{form_field(L('이메일', 'Email'), 'email', 'email', req=True)}{form_field(L('희망 일정', 'Preferred date'), 'date', 'date')}
 {form_field(L('문의 내용', 'Message'), 'message', 'textarea', full=True)}{consent(lang)}<p class="form-msg">{L('필수 항목을 확인해 주세요.', 'Please complete the required fields.')}</p><div class="form-actions"><button class="btn btn-pri" type="submit">{L('예약 문의', 'Send')} {ARROW}</button></div></form></div>
 </div></div>'''
-    write(lang, cur, L('전시회·행사', 'Exhibitions & Events'), L('에코쉴드 전시회 참가 일정과 미팅 예약.', 'ECOSHIELD exhibitions and meeting bookings.'), body)
+    write(lang, cur, L('전시회·행사', 'Exhibitions & Events'), L('엑소스킨 전시회 참가 일정과 미팅 예약.', 'EXOSKIN exhibitions and meeting bookings.'), body)
 
 # ================================================================== CONTACT
 def contact_aside(lang):
@@ -940,7 +940,7 @@ def page_contact(lang):
                   form_field('Incoterms', 'incoterms', 'select', opts=[('', 'Select'), ('FOB', 'FOB'), ('CIF', 'CIF'), ('DAP', 'DAP'), ('other', 'Other / not sure')]) + form_field('Destination port', 'port', ph='e.g. Port of Jakarta') +
                   form_field('Attachments', 'file', 'file', full=True, hint='PDF, DWG, JPG (max 20 MB)') + form_field('Message', 'message', 'textarea', full=True, ph='Required fire rating, operating temperature (°C/°F), project schedule…'))
     body += f'''<div class="page"><div class="wrap form-layout"><form class="form rv" data-es-form action="{thanks(cur)}" novalidate>{fields}{consent(lang)}{msg}<div class="form-actions"><button class="btn btn-pri" type="submit">{L('문의 접수', 'Submit request')} {ARROW}</button></div></form>{contact_aside(lang)}</div></div>'''
-    write(lang, cur, L('견적·샘플 문의', 'Request a Quote'), L('에코쉴드 에어로젤 제품 견적·샘플 문의.', 'Request a quote or samples for ECOSHIELD aerogel products.'), body)
+    write(lang, cur, L('견적·샘플 문의', 'Request a Quote'), L('엑소스킨 에어로젤 제품 견적·샘플 문의.', 'Request a quote or samples for EXOSKIN aerogel products.'), body)
 
     # partner
     cur = lp(lang, 'contact/partner/')
@@ -965,7 +965,7 @@ def page_contact(lang):
 <div class="rv d1"><div class="callout" style="margin-top:0"><b>{L('지역 조건', 'Territories')}</b> — {L('지역별 대리점 조건은 상담을 통해 안내합니다.', 'Territory and exclusivity terms are discussed individually, within the scope of our distribution agreement with the manufacturer.')}</div></div></div>
 <div class="block"><h2 class="h3 rv">{L('파트너 신청', 'Apply')}</h2><form class="form rv" style="margin-top:32px" data-es-form action="{thanks(cur)}" novalidate>{fields}{consent(lang)}{msg}<div class="form-actions"><button class="btn btn-pri" type="submit">{L('파트너 신청', 'Submit application')} {ARROW}</button></div></form></div>
 </div></div>'''
-    write(lang, cur, L('파트너·대리점 모집', 'Become a Partner'), L('에코쉴드 국내 대리점·시공 파트너 모집.', 'Distribution, applicator and EPC partnership with ECOSHIELD.'), body)
+    write(lang, cur, L('파트너·대리점 모집', 'Become a Partner'), L('엑소스킨 국내 대리점·시공 파트너 모집.', 'Distribution, applicator and EPC partnership with EXOSKIN.'), body)
 
     # technical
     cur = lp(lang, 'contact/technical/')
@@ -982,18 +982,18 @@ def page_contact(lang):
     cur = lp(lang, 'contact/faq/')
     body = subvis(lang, cur, L('자주 묻는 질문', 'FAQ'), '', 'scene-03', [c0, ('FAQ', None)]) + lnb(lang, cur, 'contact')
     if k:
-        faq = [('제품', [('에어로젤 도료와 일반 단열·방화 도료는 무엇이 다른가요?', '에어로젤은 나노 기공에 공기를 가둔 초경량 소재로, 얇은 도막에서도 열전달을 크게 줄입니다. 에코쉴드 도료는 이 에어로젤을 함유해 단열·방화 기능을 높였습니다.'),
+        faq = [('제품', [('에어로젤 도료와 일반 단열·방화 도료는 무엇이 다른가요?', '에어로젤은 나노 기공에 공기를 가둔 초경량 소재로, 얇은 도막에서도 열전달을 크게 줄입니다. 엑소스킨 도료는 이 에어로젤을 함유해 단열·방화 기능을 높였습니다.'),
                        ('제품 사양의 수치는 어떤 기준인가요?', '모든 수치는 제조사(중국 GB 등) 시험 기준입니다. 국내 인증은 취득 후 인증·시험성적서 페이지에 별도로 게시합니다.'),
-                       ('제조사는 어디인가요?', '중국 숴싱 신소재(Shuoxing New Materials)가 생산하며, 에코쉴드(주식회사 에코아트)가 한국 공식 총판으로 공급합니다.')]),
+                       ('제조사는 어디인가요?', '중국 숴싱 신소재(Shuoxing New Materials)가 생산하며, 엑소스킨(주식회사 에코아트)가 한국 공식 총판으로 공급합니다.')]),
                ('시공', [('직접 시공할 수 있나요?', '내벽용 도료와 단열 펠트는 일반 도장·보온 시공 경험이 있으면 시공할 수 있습니다. 내화도료는 요구 도막 두께 관리가 중요하므로 전문 시공사 시공을 권장합니다.'),
                        ('소요량은 어떻게 계산하나요?', '시공 면적, 요구 성능(내화시간·사용 온도)에 따라 달라집니다. 도면이나 면적을 보내 주시면 산출해 드립니다.')]),
                ('인증', [('국내 인증이 있나요?', '현재 국내 인증 취득을 준비하고 있습니다. 취득 전에는 "방염 인증", "내화구조 인정" 등의 표현을 쓰지 않으며, 진행 상황은 홈페이지에 공지합니다.')]),
                ('주문·배송', [('샘플을 받을 수 있나요?', '견적·샘플 문의에 제품과 용도를 남겨 주시면 샘플 제공 여부와 일정을 안내합니다.'),
                           ('납기는 얼마나 걸리나요?', '국내 재고 제품은 주문 확인 후 빠르게 출고하며, 재고가 없는 제품은 수입 일정에 따라 달라집니다. 견적 시 함께 안내합니다.')])]
     else:
-        faq = [('Products', [('How do aerogel coatings differ from standard insulation or fire-protection coatings?', 'Aerogel traps air in nanoscale pores, cutting heat transfer even in thin films. ECOSHIELD coatings contain aerogel to boost insulation and fire performance.'),
+        faq = [('Products', [('How do aerogel coatings differ from standard insulation or fire-protection coatings?', 'Aerogel traps air in nanoscale pores, cutting heat transfer even in thin films. EXOSKIN coatings contain aerogel to boost insulation and fire performance.'),
                              ('What standards are the values based on?', 'All values are from the manufacturer\'s tests (Chinese GB standards, etc.). We do not claim compliance with EN, ASTM/UL or other regional standards unless products have been tested to them.'),
-                             ('Who manufactures the products?', 'Shuoxing New Materials in China. ECOSHIELD (ECOART Co., Ltd., Korea) is the official Korea distributor.')]),
+                             ('Who manufactures the products?', 'Shuoxing New Materials in China. EXOSKIN (ECOART Co., Ltd., Korea) is the official Korea distributor.')]),
                ('Orders & export', [('What is the MOQ?', 'MOQ depends on the product and packaging. Tell us your target products and volumes and we will confirm.'),
                                     ('What are the lead times?', 'Lead time depends on product, quantity and stock. We confirm it with every quotation.'),
                                     ('Which Incoterms and payment terms do you offer?', 'FOB, CIF and DAP are available on request. Payment terms are agreed per order.'),
@@ -1002,7 +1002,7 @@ def page_contact(lang):
     acc = ''.join('<p class="acc-cat rv">%s</p>%s' % (c, ''.join('<details class="rv"><summary>%s</summary><div class="a">%s</div></details>' % (q, a) for q, a in qs)) for c, qs in faq)
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for c, qs in faq for q, a in qs]}
     body += f'''<div class="page"><div class="wrap" style="max-width:980px"><div class="acc">{acc}</div><p style="margin-top:56px;text-align:center"><a class="btn btn-pri" href="{url(cur, lp(lang, 'contact/technical/'))}">{L('원하는 답이 없나요? 문의하기', 'Still have questions? Ask us')} {ARROW}</a></p></div></div>'''
-    write(lang, cur, L('자주 묻는 질문', 'FAQ'), L('에코쉴드 제품·시공·인증·주문 관련 자주 묻는 질문.', 'Frequently asked questions about ECOSHIELD products, export and application.'), body,
+    write(lang, cur, L('자주 묻는 질문', 'FAQ'), L('엑소스킨 제품·시공·인증·주문 관련 자주 묻는 질문.', 'Frequently asked questions about EXOSKIN products, export and application.'), body,
           extra_head='<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False))
 
     # thanks
@@ -1023,7 +1023,7 @@ def page_util(lang):
     body = subvis(lang, cur, L('통합검색', 'Search'), '', 'space-06', [(L('통합검색', 'Search'), None)])
     body += f'''<div class="page"><div class="wrap"><form class="search-box" onsubmit="return false"><input id="search-q" type="search" placeholder="{L('제품명, 적용 공간, 자료를 검색하세요', 'Search products, applications, documents')}" aria-label="search"></form><div class="search-res" id="search-res"></div></div></div>
 <script src="{asset(cur, 'js/search-%s.js' % lang)}"></script>'''
-    write(lang, cur, L('통합검색', 'Search'), L('에코쉴드 사이트 통합검색', 'Search the ECOSHIELD site'), body, noindex=True)
+    write(lang, cur, L('통합검색', 'Search'), L('엑소스킨 사이트 통합검색', 'Search the EXOSKIN site'), body, noindex=True)
 
     def legal(path, title, sections, image='space-08'):
         cur = lp(lang, path)
@@ -1038,7 +1038,7 @@ def page_util(lang):
             ('4. 제3자 제공 및 처리 위탁', ['회사는 정보주체의 동의 없이 개인정보를 제3자에게 제공하지 않습니다. 처리 위탁이 발생하는 경우 본 방침을 통해 공개합니다.']),
             ('5. 정보주체의 권리', ['정보주체는 언제든지 개인정보 열람·정정·삭제·처리정지를 요구할 수 있습니다.']),
             ('6. 개인정보 보호책임자', ['성명: %s (대표이사) / 전화: %s / 이메일: %s' % (SITE['ceo_ko'], SITE['tel'], SITE['email'])])])
-        legal('terms/', '이용약관', [('제1조 (목적)', ['이 약관은 주식회사 에코아트(이하 "회사")가 운영하는 ECOSHIELD 웹사이트의 이용 조건과 절차를 정합니다.']),
+        legal('terms/', '이용약관', [('제1조 (목적)', ['이 약관은 주식회사 에코아트(이하 "회사")가 운영하는 EXOSKIN 웹사이트의 이용 조건과 절차를 정합니다.']),
                                   ('제2조 (정보의 제공)', ['사이트에 게시된 제품 정보와 수치는 제조사 시험 기준이며, 실제 성능은 시공 조건에 따라 달라질 수 있습니다. 설계·시공 시에는 최신 TDS와 담당자 상담을 통해 확인하십시오.']),
                                   ('제3조 (저작권)', ['사이트의 콘텐츠에 대한 저작권은 회사 또는 정당한 권리자에게 있으며, 사전 동의 없이 복제·배포할 수 없습니다.'])])
         legal('no-email-collection/', '이메일무단수집거부', [('', ['본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반 시 정보통신망법에 의해 형사 처벌됨을 유념하시기 바랍니다.'])])
@@ -1060,7 +1060,7 @@ def page_util(lang):
         cols += '<div class="tile rv"><h3>%s</h3><ul style="margin-top:14px">%s</ul></div>' % (esc(n['label']), ''.join('<li style="padding:4px 0"><a href="%s">%s</a></li>' % (url(cur, lp(lang, p)), esc(l)) for l, p in n['kids']))
     body = subvis(lang, cur, L('사이트맵', 'Sitemap'), '', 'space-06', [(L('사이트맵', 'Sitemap'), None)])
     body += '<div class="page"><div class="wrap"><div class="tiles">%s</div></div></div>' % cols
-    write(lang, cur, L('사이트맵', 'Sitemap'), L('에코쉴드 전체 메뉴', 'All ECOSHIELD pages'), body)
+    write(lang, cur, L('사이트맵', 'Sitemap'), L('엑소스킨 전체 메뉴', 'All EXOSKIN pages'), body)
 
 # ================================================================== BUILD
 def collect_paths():

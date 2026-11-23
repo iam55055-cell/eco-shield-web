@@ -1,4 +1,4 @@
-/* ECOSHIELD site script */
+/* EXOSKIN site script */
 (function () {
   var d = document, root = d.documentElement;
   root.classList.remove('no-js');
