@@ -551,7 +551,7 @@ def page_about(lang):
 <tr><th>{L('전화', 'Phone')}</th><td><a href="tel:{SITE['tel_link']}">{L(SITE['tel'], SITE['tel_intl'])}</a></td></tr>
 <tr><th>{L('이메일', 'Email')}</th><td><a href="mailto:{SITE['email']}">{SITE['email']}</a></td></tr>
 <tr><th>{L('운영 시간', 'Hours')}</th><td>{L('평일 09:00~18:00 (주말·공휴일 휴무)', 'Mon–Fri 09:00–18:00 KST')}</td></tr>
-<tr><th>{L('교통', 'Access')}</th><td>{L('광양프런티어밸리 6차 2층 209호 · 방문 전 전화로 예약해 주세요.', 'Please call ahead to book a visit.')}</td></tr></tbody></table></div></div></div>
+<tr><th>{L('교통', 'Access')}</th><td>{L('광양프런티어밸리 6차 1층 117, 118호 · 방문 전 전화로 예약해 주세요.', 'Please call ahead to book a visit.')}</td></tr></tbody></table></div></div></div>
 </div></div>'''
     write(lang, cur, L('오시는 길', 'Location'), L('엑소스킨(주식회사 에코아트) 사무실 위치와 연락처.', 'EXOSKIN (ECOART Co., Ltd.) office location and contact.'), body)
 
