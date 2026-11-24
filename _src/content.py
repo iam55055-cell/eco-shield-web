@@ -5,8 +5,8 @@
 """
 
 SITE = {
-    'domain': 'https://www.eco-shield.co.kr',
-    'email': 'contact@eco-shield.co.kr',
+    'domain': 'https://www.exoskin.co.kr',
+    'email': 'contact@exoskin.co.kr',
     'operator_ko': '주식회사 에코아트',
     'ceo_ko': '심종훈', 'ceo_en': 'Jonghun Shim',
     'bizno': '694-81-03096', 'corpno': '285011-0560272',

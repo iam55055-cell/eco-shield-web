@@ -1,4 +1,4 @@
-# EXOSKIN 홈페이지 (www.eco-shield.co.kr)
+# EXOSKIN 홈페이지 (www.exoskin.co.kr)
 
 정적 HTML/CSS/JS 사이트입니다. 빌드 과정 없이 저장소 루트를 그대로 배포합니다.
 

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /projects/case-template/
 Disallow: /en/projects/case-template/
-Sitemap: https://www.eco-shield.co.kr/sitemap.xml
+Sitemap: https://www.exoskin.co.kr/sitemap.xml

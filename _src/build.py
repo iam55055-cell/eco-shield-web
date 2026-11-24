@@ -464,7 +464,7 @@ def page_about(lang):
 <tr><th>{L('대표전화', 'Tel')}</th><td><a href="tel:{SITE['tel_link']}">{L(SITE['tel'], SITE['tel_intl'])}</a></td></tr>
 <tr><th>{L('이메일', 'Email')}</th><td><a href="mailto:{SITE['email']}">{SITE['email']}</a></td></tr>
 <tr><th>{L('제조 파트너', 'Manufacturer')}</th><td>{L('숴싱 신소재 (Shuoxing New Materials, 중국)', 'Shuoxing New Materials (China)')}</td></tr>
-<tr><th>{L('웹사이트', 'Website')}</th><td>www.eco-shield.co.kr</td></tr></tbody></table></div></div>
+<tr><th>{L('웹사이트', 'Website')}</th><td>www.exoskin.co.kr</td></tr></tbody></table></div></div>
 <div class="rv d1"><span class="eyebrow">History</span><h2 class="h3">{L('연혁', 'History')}</h2><ul class="tl" style="margin-top:32px"><li><b>2026.11</b><span>{L('EXOSKIN 브랜드 수립, 홈페이지 오픈', 'EXOSKIN brand launched, website opened')}</span></li><li><b>2026</b><span>{L('숴싱 신소재 에어로젤 제품 한국 공급 준비', 'Preparing supply of Shuoxing aerogel products in Korea')}</span></li><li><b>2024.03</b><span>{L('주식회사 에코아트 설립', 'ECOART Co., Ltd. founded')}</span></li></ul><p class="note">{L('※ 연혁은 주요 일정 확정 시 업데이트합니다.', '※ Updated as milestones are confirmed.')}</p></div></div>
 </div></div>''' + cta_band(lang, cur)
     write(lang, cur, L('엑소스킨 소개', 'About EXOSKIN'), L('엑소스킨은 숴싱 신소재 에어로젤 방화·단열 소재의 한국 공식 총판 브랜드입니다. 운영사 주식회사 에코아트.', 'EXOSKIN is the official Korea distributor brand for Shuoxing aerogel materials, operated by ECOART Co., Ltd.'), body)
